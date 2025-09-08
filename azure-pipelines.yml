@@ -133,20 +133,20 @@ jobs:
       TargetPath: $(Build.ArtifactStagingDirectory)
       ArtifactName: metadata
 
-# - job: VerifyLinuxRequirements
-#   displayName: 'Verify src/azure-cli/requirements.*.Linux.txt'
-#   condition: succeeded()
-#   pool:
-#     name: ${{ variables.ubuntu_pool }}
+- job: VerifyLinuxRequirements
+  displayName: 'Verify src/azure-cli/requirements.*.Linux.txt'
+  condition: succeeded()
+  pool:
+    name: ${{ variables.ubuntu_pool }}
 
-#   steps:
-#   - task: UsePythonVersion@0
-#     displayName: 'Use Python 3.13'
-#     inputs:
-#       versionSpec: 3.13
+  steps:
+  - task: UsePythonVersion@0
+    displayName: 'Use Python 3.13'
+    inputs:
+      versionSpec: 3.13
 
-#   - bash: ./scripts/ci/dependency_check.sh
-#     displayName: 'Verify src/azure-cli/requirements.py3.Linux.txt'
+  - bash: ./scripts/ci/dependency_check.sh
+    displayName: 'Verify src/azure-cli/requirements.py3.Linux.txt'
 
 # - job: VerifyDarwinRequirements
 #   displayName: 'Verify src/azure-cli/requirements.*.Darwin.txt'
